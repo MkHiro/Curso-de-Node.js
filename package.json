@@ -1,0 +1,27 @@
+{
+  "name": "curso-de-node",
+  "version": "0.1.0",
+  "description": "curso de nodejs, un chat de telegram pero mejor",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MkHiro/Curso-de-Node.js.git"
+  },
+  "keywords": [
+    "chat",
+    "telegram",
+    "server"
+  ],
+  "author": "MkHiro (Pedro Gallardo I.)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MkHiro/Curso-de-Node.js/issues"
+  },
+  "homepage": "https://github.com/MkHiro/Curso-de-Node.js#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
