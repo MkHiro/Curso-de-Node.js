@@ -9,12 +9,16 @@ app.use(router);
 
 
 router.get('/message', function(req,res){
+     console.log(req.headers);
+     res.header({
+          "custom-header": "nuestro valor personalizado",
+     });
      res.send('Lista de mensajes');
 });
 router.delete('/message', function(req,res){
      console.log(req.query);
      console.log(req.body);
-     res.send('Mensaje ' + req.body.text + ' añadido correctamente')
+     res.send('Mensaje ' + req.body.text + ' añadido correctamente');
 });
 
 // app.use('/', function(req,res){
