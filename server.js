@@ -6,7 +6,7 @@ const router = require('./network/routes');
 
 var app = express();
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false})); 
+app.use(bodyParser.urlencoded({extended: true})); 
 //app.use(router);
 
 router(app);
