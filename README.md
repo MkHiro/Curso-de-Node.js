@@ -1,5 +1,5 @@
 # Curso-de-Node.js
-Base de Datos con MongoDB y WebSockets
+Base de Datos con MongoDB y WebSockets:
 https://platzi.com/cursos/nodejs-mongo-websockets/
 
 ## **Clase 19: Cambio de tecnologia**, usaremos un nuevo **MongoAtlas** ##
