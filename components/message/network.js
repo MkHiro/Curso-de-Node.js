@@ -4,12 +4,13 @@ const controller = require('./controller');
 const router = express.Router();
 
 router.get('/', function(req,res){
-    controller.getMessages()
+     const filterMessages = req.query.user || null;
+     controller.getMessages(filterMessages)
           .then((messageList)=>{
               response.success(req,res,messageList,200);
           }).catch(e =>{
                response.error(req,res,'Unexpected Error',500),e;
-          });
+     });
 });
 
 router.post('/', function(req,res){
