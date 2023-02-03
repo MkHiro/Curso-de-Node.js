@@ -8,7 +8,6 @@ const config = {
     dbUser : encodeURIComponent(process.env.DB_USER),
     dbPass : encodeURIComponent(process.env.DB_PASS)
 };
-//mongodb+srv://<user><password>@cluster0.tup9ujd.mongodb.net/?retryWrites=true&w=majority
 //mongodb+srv://<DB_USER><DB_PASS>@<DB_HOST>/?retryWrites=true&w=majority
 db.Promise = global.Promise;
 db.set('strictQuery', false);
