@@ -1,14 +1,21 @@
 const db = require('mongoose');
 const Model = require('./model');
-//mongodb+srv://db_user_Hiro:ibNtpYbxVnhpvlHa@cluster0.tup9ujd.mongodb.net/?retryWrites=true&w=majority
-//mongodb+srv://db_user_Hiro:<password>@cluster0.tup9ujd.mongodb.net/?retryWrites=true&w=majority
+//npm i dotenv, esta libreria lee el archivo .env, subire un .env.example para que puedan alimentar su base de datos.
+require('dotenv').config();
+const config = {
+    dbHost : process.env.DB_HOST,
+    dbName : process.env.DB_NAME,
+    dbUser : encodeURIComponent(process.env.DB_USER),
+    dbPass : encodeURIComponent(process.env.DB_PASS)
+};
 //mongodb+srv://<user><password>@cluster0.tup9ujd.mongodb.net/?retryWrites=true&w=majority
+//mongodb+srv://<DB_USER><DB_PASS>@<DB_HOST>/?retryWrites=true&w=majority
 db.Promise = global.Promise;
 db.set('strictQuery', false);
-db.connect('mongodb+srv://db_user_Hiro:ibNtpYbxVnhpvlHa@cluster0.tup9ujd.mongodb.net/?retryWrites=true&w=majority',{
+db.connect(`mongodb+srv://${config.dbUser}:${config.dbPass}@${config.dbHost}/?retryWrites=true&w=majority`,{
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    dbName: 'telegrom'
+    dbName: config.dbName
 });
 console.log('[db] Conectada con exito a telegrom');
 
