@@ -3,15 +3,15 @@ const Model = require('./model');
 //npm i dotenv, esta libreria lee el archivo .env, subire un .env.example para que puedan alimentar su base de datos.
 require('dotenv').config();
 const config = {
-    dbHost : process.env.DB_HOST,
-    dbName : process.env.DB_NAME,
+    dbHost : process.env.DB_HOST,                     //no es necesario
+    dbName : process.env.DB_NAME,                       
     dbUser : encodeURIComponent(process.env.DB_USER),
     dbPass : encodeURIComponent(process.env.DB_PASS)
 };
-//mongodb+srv://<DB_USER><DB_PASS>@<DB_HOST>/?retryWrites=true&w=majority
 db.Promise = global.Promise;
 db.set('strictQuery', false);
-db.connect(`mongodb+srv://${config.dbUser}:${config.dbPass}@${config.dbHost}/?retryWrites=true&w=majority`,{
+//mongodb+srv://<DB_USER><DB_PASS>@<DB_HOST>/?retryWrites=true&w=majority                                          //formato MongoDB 5.0
+db.connect(`mongodb+srv://${config.dbUser}:${config.dbPass}@${config.dbHost}/?retryWrites=true&w=majority`,{       //formato MongoDB 5.0
     useNewUrlParser: true,
     useUnifiedTopology: true,
     dbName: config.dbName
