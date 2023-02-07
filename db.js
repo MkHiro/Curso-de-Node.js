@@ -9,7 +9,7 @@ async function connect(url,dbName){
         useUnifiedTopology: true,
         dbName: dbName
     });
-    console.log('[db] Conectada con exito a telegrom');
+    console.log(`[db] Conectada con exito a ${dbName}`);
 }
 
 module.exports = connect;
