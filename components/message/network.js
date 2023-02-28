@@ -1,12 +1,21 @@
 const express = require('express');
 const multer = require('multer');
-
+const path = require("path");
 const response = require('../../network/response');
 const controller = require('./controller');
 const router = express.Router();
 
+var storage = multer.diskStorage({  //Para agregar las extenciones del archivo (.jpg) 
+    destination: function (req, file, cb) {
+      cb(null, 'public/files/') //la carpeta que recibe las imagenes 
+    },
+    filename: function (req, file, cb) {
+      cb(null, Date.now() + path.extname(file.originalname)) //aqui extrae la extencion del nombre original 
+    }
+  })
+
 const upload = multer({
-    dest: 'public/files/',
+    storage: storage
 });
 
 router.get('/', function (req, res) {
@@ -20,6 +29,9 @@ router.get('/', function (req, res) {
         })
 });
 router.post('/', upload.single('file'), function (req, res) { 
+
+    console.log(req.file);
+
     controller.addMessage(req.body.chat, req.body.user, req.body.message, req.file)
         .then((fullMessage) => {
             response.success(req, res, fullMessage, 201);    
